@@ -8,7 +8,7 @@ client = socket.socket(
 )
 
 client.connect(
-    ('127.0.0.1', 9090)
+    ('10.8.67.204', 9090)
 )
 
 while True:
@@ -17,5 +17,12 @@ while True:
     print(data.decode('utf-8'))
 
     # отпраляем данные
-    client.send(input("::: ").encode('utf-8'))
+    while True:
+            client.send(input("::: ").encode('utf-8'))
+            data = client.recv(2048)
+            print(data.decode('utf-8'))
+
+
+
+
 
