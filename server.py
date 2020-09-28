@@ -8,7 +8,7 @@ server = socket.socket(
 )
 
 server.bind(
-    ('127.0.0.1', 9090)  # localhost
+    ('10.8.67.204', 9090)  # localhost
 )
 
 server.listen(1)
@@ -23,8 +23,7 @@ while True:
     user_socket.send('You are connected, bro'.encode('utf-8'))
 
     # принимаем данные
-    data = user_socket.recv(2048)
-    print(f'User {address}: ' + data.decode('utf-8'))
-
-
-
+    while True:
+        data = user_socket.recv(2048)
+        print(f'User {address}: ' + data.decode('utf-8'))
+        user_socket.send(input(':::').encode('utf-8'))
